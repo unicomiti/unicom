@@ -10,11 +10,10 @@ name=$1
 #Script
 /bin/echo " Ajout de l'utilisateur:"
 /bin/echo "
-  [$name](sipUser)
-  username = $name
-  secret= $name
-  context = etudiant
-  "
-#/bin/echo "" >> /usr/local/etc/asterisk/sip.conf
+[$name](sipUser)
+username = $name
+secret= $name
+context = etudiant
+" >> /usr/local/etc/asterisk/sip.conf
 
 exit 0
