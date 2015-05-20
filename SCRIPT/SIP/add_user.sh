@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 #Pierrick VERAN
 #Script permettant d'administrer le DNS tinydns du serveur Meetspace
 
