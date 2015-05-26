@@ -4,16 +4,22 @@
 
 #Variable
 name=$1
-#context=$2
-#secret=$3
+password=$2
+phoneNumber=$3
+#context=$4
 
-#Script
-/bin/echo " Ajout de l'utilisateur:"
-/bin/echo "
-[$name](sipUser)
-username = $name
-secret= $name
-context = etudiant
-" >> /usr/local/etc/asterisk/sip.conf
+if [ $? == 2 ]
+then
+  #Script
+  /bin/echo " Ajout de l'utilisateur:"
+  /bin/echo "
+  [$name](sipUser)
+  username = $name
+  secret= $password
+  " >> /usr/local/etc/asterisk/sip.conf
+  /usr/sbin/service asterisk restart"
+else
+  echo "./add_user.sh [nom] [password]"
+fi
 
 exit 0
