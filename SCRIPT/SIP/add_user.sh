@@ -19,7 +19,7 @@ then
   " >> /usr/local/etc/asterisk/sip.conf
   /usr/sbin/service asterisk restart"
 else
-  echo "./add_user.sh [nom] [password]"
+  /bin/echo "./add_user.sh [nom] [password]"
 fi
 
 exit 0
