@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/bin/bash
 
 #Pierrick VERAN
 #Unicom -Script d'ajout d'utilisateur sip/asterisk
