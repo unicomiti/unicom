@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #Pierrick VERAN
 #Unicom -Script d'ajout d'utilisateur sip/asterisk
@@ -7,7 +7,7 @@
 name=NaN # Nom de l'utilisateur
 password=NaN # Mot de passe de l'utilisateur
 context=NaN # Groupe d'appel pour les plans d'appel
-phonenumber=NaN # Numéro de téléphone
+phonenumber=NaN # Numero de telephone
 groupeAppel=NaN # Nom du groupe d'appel au quel il fait parti
 
 #Initialisation des variables avec les parametre
@@ -21,12 +21,12 @@ if [ $# == 5 ]
 then
   #Ajout de l'utilisateur dans le fichier sip.conf
   /bin/echo "
-  [$name](sipUser)
-  fullname = $name
-  username = $name
-  context = $context
-  secret = $password
-  mailbox = $phonenumber@default ; Messagerie vocale " >> /usr/local/etc/asterisk/sip.conf
+[$name](sipUser)
+fullname = $name
+username = $name
+context = $context
+secret = $password
+mailbox = $phonenumber@default ; Messagerie vocale " >> /usr/local/etc/asterisk/sip.conf
   /usr/sbin/service asterisk restart
   /bin/echo "[$(/bin/date "+ %Y-%m-%d %H:%M:%S") - $0] add user: $name"
   
