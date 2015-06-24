@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/local/bin/bash
 # LAURET Maxime
 # Adding users to the Prosody server
 
@@ -10,3 +10,4 @@ echo ("Password ?");
 read $password;
 
 prosodyctl adduser $username"@unicom.itinet.fr"
+prosody reload
