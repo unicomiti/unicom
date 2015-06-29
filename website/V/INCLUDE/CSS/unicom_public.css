@@ -1,0 +1,42 @@
+/* Mise en page du site de MeetSpace */
+
+body {
+	background-image: url(../IMG/background_public.jpg);
+	background-size: cover;
+	background-attachment:fixed;	
+}
+
+h1{
+	text-align: center;
+	min-height: 100px;
+	color: black;
+}
+
+p {
+	text-align: center;
+}
+
+form {
+	text-align: center;
+}
+
+footer {
+	text-align: center;
+}
+
+h2 {
+	color: black;
+	text-align: center;
+	margin-top: -5%;
+}
+
+table {
+	margin-right: 15%;
+	margin-left: 15%;
+}
+
+i {
+	color: black;
+	text-align: center;
+	
+}
