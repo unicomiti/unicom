@@ -1,13 +1,11 @@
-<!--
-footer.php
--->
+<!-- footer.php -->
 
 <footer>
 	<?php
 	if (isset($_SESSION['ID']))
 	{
 	// SI CONNECTER
-		include_once ("./V/V_jappix.php");
+        // include_once ("./V/V_jappix.php");
 	}
 	else
 	{

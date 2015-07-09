@@ -1,19 +1,20 @@
-<!--
-V_deconnexion.php
-View for the logout
-Created by Max (2015-01-12)
--->
+<!-- Public -->
 
-
-<!DOCTYPE html >
-
+<!DOCTYPE html>
 <html>
-
-	<head>
-	</head>
-	
-	<body>
-	<?php echo "Deconnection fail"; ?>
-	</body>
-
+<?php include_once ("./../V/INCLUDE/header.php"); ?>
+<body>
+<div class = "site-wrapper">
+    <div class = "site-wrapper-inner">
+        <div class="col-lg-12" >		<!-- Colonne -->
+            <div class="inner cover">		<!-- Background -->
+                <h1 class="cover-heading">
+                    Erreur lors de la déconnection
+                </h1>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<?php include_once ("./../V/INCLUDE/footer.php"); ?>
 </html>

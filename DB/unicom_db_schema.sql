@@ -1,0 +1,86 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `unicom` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `unicom` ;
+
+-- -----------------------------------------------------
+-- Table `unicom`.`AUTHORIZATION`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `unicom`.`AUTHORIZATION` ;
+
+CREATE TABLE IF NOT EXISTS `unicom`.`AUTHORIZATION` (
+  `ID_CONTEXT_IN` INT(255) NOT NULL,
+  `ID_CONTEXT_OUT` INT(255) NOT NULL,
+  PRIMARY KEY (`ID_CONTEXT_IN`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `unicom`.`CONTEXT`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `unicom`.`CONTEXT` ;
+
+CREATE TABLE IF NOT EXISTS `unicom`.`CONTEXT` (
+  `ID` INT(255) NOT NULL,
+  `NAME` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`ID`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `unicom`.`CONTEXT_TRUNK`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `unicom`.`CONTEXT_TRUNK` ;
+
+CREATE TABLE IF NOT EXISTS `unicom`.`CONTEXT_TRUNK` (
+  `ID` INT(255) NOT NULL,
+  `LOGIN` VARCHAR(255) NOT NULL,
+  `PASSWORD` VARCHAR(255) NOT NULL,
+  `IP` VARCHAR(15) NOT NULL,
+  `PORT` VARCHAR(255) NOT NULL,
+  `FILENAME` VARCHAR(255) NOT NULL,
+  `SWITCH` VARCHAR(2) NOT NULL,
+  `CONTEXT_ID` INT(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_CONTEXT_TRUNK_CONTEXT1_idx` (`CONTEXT_ID` ASC),
+  CONSTRAINT `fk_CONTEXT_TRUNK_CONTEXT1`
+    FOREIGN KEY (`CONTEXT_ID`)
+    REFERENCES `unicom`.`CONTEXT` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `unicom`.`USERS`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `unicom`.`USERS` ;
+
+CREATE TABLE IF NOT EXISTS `unicom`.`USERS` (
+  `ID` INT(255) NOT NULL,
+  `STATUS` TINYINT(1) NOT NULL,
+  `LASTNAME` VARCHAR(255) NOT NULL,
+  `NICKNAME` VARCHAR(255) NOT NULL,
+  `PASSWORD` VARCHAR(255) NOT NULL,
+  `MAIL` VARCHAR(255) NOT NULL,
+  `PHONENUMBER` INT(4) NOT NULL,
+  `CONTEXT_ID` INT(255) NOT NULL,
+  PRIMARY KEY (`ID`),
+  INDEX `fk_USERS_CONTEXT_idx` (`CONTEXT_ID` ASC),
+  CONSTRAINT `fk_USERS_CONTEXT`
+    FOREIGN KEY (`CONTEXT_ID`)
+    REFERENCES `unicom`.`CONTEXT` (`ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+AUTO_INCREMENT = 4;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

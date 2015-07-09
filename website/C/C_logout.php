@@ -9,19 +9,12 @@ Created by Max (2015-01-07)
 ?>
 
 <?php
-	include("M/M_logout.php");				// Including the Model
-?>
-
-<?php
+	include("./../M/M_logout.php");				// Including the Model
 
 	// Suppression des variables de session et de la session
-	$_SESSION = array();
-	session_destroy();
-
+	logout();
 	//Et on recharge l'index
 	header("Location: ./../index.php");
-?>
 
-<?php
-	include("./V/V_logout.php");		// Including the View
+	include("./../V/V_logout.php");		// Including the View
 ?>
